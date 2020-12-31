@@ -6,6 +6,8 @@
 
 {% load static %}
 
+
+{% comment %}
 <div class="bgded overlay" style="background-image:url('{% static 'images/fondo.jpg' %}');">
   <div id="pageintro" class="hoc clear"> 
     <!-- ################################################################################################ -->
@@ -219,6 +221,38 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
+
+
+  
+{% endcomment %}
+
+
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-list clearfix">
+
+                            <br>
+                            <div class="newsletter-widget text-center">
+                                <form class="form-inline" method="buscar">
+                                    <input type="text" name="buscar" class="form-control" placeholder="Buscar....">
+                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                </form>
+                            </div><!-- end newsletter -->
+                            <br>
+
+                                {% include 'articles/article.html' %}
+
+                                {% include 'articles/pagination.html' %}
+ 
+                    </div><!-- end col -->
+
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+
 
 
 {% endblock  %}

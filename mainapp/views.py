@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from blog.models import Category, Article
 from mainapp.forms import RegisterForm
+from django.core.paginator import Paginator
 import sqlite3
 
 #conexon
@@ -12,8 +14,18 @@ cursor = conexion.cursor()
 
 # Create your views here.
 def index(request):
+
+    articles = Article.objects.all()
+    #paginar los articulos
+    paginator = Paginator(articles, 2)
+
+    #obtener el numero de la pagina
+    page = request.GET.get('page')
+    page_articles = paginator.get_page(page)
+
     return render(request, 'mainapp/index.html',{
-        'title': 'Inicio'
+        'title': 'Inicio',
+        'articles': page_articles
     })
 
 def register_page(request):

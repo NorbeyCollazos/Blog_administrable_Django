@@ -4,6 +4,7 @@
 
 {% block content %}
 
+{% comment  %}
 <div class="wrapper row3">
   <main class="hoc container clear"> 
     <div class="sectiontitle">
@@ -15,5 +16,53 @@
     <div class="clear"></div>
   </main>
 </div>
+
+
+{% endcomment %}
+
+
+
+
+
+<section class="section single-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-title-area text-center">
+
+                                <!--<span class="color-orange"><a href="tech-category-01.html" title=""></a></span>-->
+
+                                <h3>{{page.title}}</h3>
+
+                                <div class="blog-meta big-meta">
+                                    <small><a href="tech-single.html" title="">{{page.created_at}}</a></small>
+                                    <!--<small><a href="tech-author.html" title="">Por {{article.user}}</a></small>-->
+                                    <!--<small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>-->
+                                </div><!-- end meta -->
+
+                            </div><!-- end title -->
+
+                            <div class="blog-content">  
+                                {{page.content |safe}}
+                            </div><!-- end content -->
+    
+                            
+
+                            <hr class="invis1">
+
+
+                        </div><!-- end page-wrapper -->
+                    </div><!-- end col -->
+
+                    
+
+
+
+            </div><!-- end container -->
+        </section>
+
+
+
 
 {% endblock  %}

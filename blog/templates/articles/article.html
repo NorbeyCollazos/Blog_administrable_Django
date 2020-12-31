@@ -2,6 +2,7 @@
 
 {% load static %}
     
+          {% comment %}
         <li class="one_third " style="height:500px;">
         <article class="excerpt">
         {% if article.image != 'null' and article.image.url|length >= 1 %}
@@ -28,6 +29,42 @@
           </div>
         </article>
       </li>
+       
+      {% endcomment %}
+
+      <div class="blog-box row">
+        <div class="col-md-4">
+            <div class="post-media">
+                <a href="tech-single.html" title="">
+                    {% if article.image != 'null' and article.image.url|length >= 1 %}
+                        <!--<a href="#">
+                        <img style="height:220px;width:320px;" class="inspace-10 borderedbox img_desc_article" src="{{article.image.url}}" alt="">
+                        </a>-->
+                        <img src="{{article.image.url}}" alt="" class="img-fluid">
+                        {% else %}
+                        <img src="{% static 'upload/tech_blog_01.jpg' %}" alt="" class="img-fluid">
+                    {% endif %}
+                    <div class="hovereffect"></div>
+                </a>
+            </div><!-- end media -->
+        </div><!-- end col -->
+
+        <div class="blog-meta big-meta col-md-8">
+            <h4><a href="{% url 'article' article.id %}" title="">{{article.title}}</a></h4>
+            <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
+            
+            {% for category in article.categories.all %}
+            <small class="firstsmall">
+            <a class="bg-orange" href="{% url 'category' category.id %}" title="">{{category.name}}</a>
+            </small>
+            {% endfor %}
+            <small><a href="tech-single.html" title="">{{article.created_at}}</a></small>
+            <!--<small><a href="tech-author.html" title="">{{article.user}}</a></small>
+            <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 1114</a></small>-->
+        </div><!-- end meta -->
+    </div><!-- end blog-box -->
+
+    <hr class="invis">
 
 
     
