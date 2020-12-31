@@ -4,6 +4,7 @@ from blog.models import Category, Article
 from mainapp.forms import RegisterForm
 from django.core.paginator import Paginator
 import sqlite3
+from django.db.models import Q
 
 #conexon
 conexion = sqlite3.connect('db.sqlite3', check_same_thread=False)
@@ -14,8 +15,19 @@ cursor = conexion.cursor()
 
 # Create your views here.
 def index(request):
+    #para el buscador
+    queryset = request.GET.get("buscar")
 
-    articles = Article.objects.all()
+    articles = Article.objects.filter(public=True)
+
+    if queryset:
+
+        query = Q(title__icontains = queryset)
+        query.add(Q(content__icontains = queryset), Q.OR)
+        query.add(Q(public=True), Q.AND)
+
+        articles = Article.objects.filter(query)
+
     #paginar los articulos
     paginator = Paginator(articles, 2)
 
