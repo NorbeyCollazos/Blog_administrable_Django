@@ -5,30 +5,6 @@
 {% block content %}
 {% load static %}
 
-<!--<div class="card">
-
-    {% for article in articles %}
-    
-        <h3>{{article.title}}</h3>
-
-        {% for category in article.categories.all %}
-           <a href=""> {{category}} </a>
-           {% if forloop.counter < article.categories.all|length %}
-                {{' - '}}
-           {% endif %}
-        {% endfor %}<br>
-
-        <span>{{article.created_at}}</span>
-        {{article.content|safe}}
-
-        {% if article.image != 'null' and article.image.url|length >= 1 %}
-            <img src="{{article.image.url}}"/>
-        {% endif %}
-    
-    {% endfor %}
-
-</div>-->
-
 
 <div class="wrapper row3">
   <section class="hoc container clear"> 

@@ -1,36 +1,6 @@
 {% for article in articles %}
 
 {% load static %}
-    
-          {% comment %}
-        <li class="one_third " style="height:500px;">
-        <article class="excerpt">
-        {% if article.image != 'null' and article.image.url|length >= 1 %}
-            <a href="#">
-            <img style="height:220px;width:320px;" class="inspace-10 borderedbox img_desc_article" src="{{article.image.url}}" alt="">
-            </a>
-            {% else %}
-            <a href="#"><img class="inspace-10 borderedbox" src="{% static 'images/demo/320x220.png' %}" alt=""></a>
-        {% endif %}
-        
-
-          <div class="excerpttxt">
-            <ul>
-              <li><i class="fa fa-calendar-o"></i> {{article.created_at}}</li>
-              {% for category in article.categories.all %}
-                <a href="{% url 'category' category.id %}"> {{category.name}} </a>
-                {% if forloop.counter < article.categories.all|length %}
-                        {{' - '}}
-                {% endif %}
-                {% endfor %}<br>
-            </ul>
-            <h6 class="heading font-x1">{{article.title}}&hellip;</h6>
-            <p><a class="btn" href="{% url 'article' article.id %}">Ver más &raquo;</a></p>
-          </div>
-        </article>
-      </li>
-       
-      {% endcomment %}
 
       <div class="blog-box row">
         <div class="col-md-4">

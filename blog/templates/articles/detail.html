@@ -6,32 +6,6 @@
 
 {% load static %}
 
-{% comment %}
-
-<div class="wrapper row3">
-  <main class="hoc container clear"> 
-    <div class="sectiontitle">
-      <h3 class="heading">{{article.title}}</h3>
-      <p>{{article.created_at}}</p>
-    </div>
-    <p class="btmspace-50 justified">{{article.content|safe}}</p>
-
-    {% if article.image != 'null' and article.image.url|length >= 1 %}
-            <a href="#">
-            <img class="inspace-10 borderedbox" src="{{article.image.url}}" alt="">
-            </a>
-            {% else %}
-            <a href="#"><img class="inspace-10 borderedbox" src="{% static 'images/demo/320x220.png' %}" alt=""></a>
-    {% endif %}
-    
-    <div class="clear"></div>
-  </main>
-</div>
-
-
-  
-{% endcomment %}
-
         <section class="section single-wrapper">
             <div class="container">
                 <div class="row">
