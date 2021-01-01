@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from blog.models import Category, Article
+from django.shortcuts import render, redirect
+from blog.models import Category, Article, Coment
 from django.core.paginator import Paginator
 
 
@@ -34,7 +34,30 @@ def category(request, category_id):
 def article(request, article_id):
 
     article = Article.objects.get(id=article_id)
+    comentarios = Coment.objects.filter(article=article_id)
 
     return render(request, 'articles/detail.html',{
-        'article': article
+        'article_id': article_id,
+        'article': article,
+        'comentarios': comentarios
     })
+
+def guardar_comentario(request, article_id):
+
+    if request.method == "POST":
+        nombre = request.POST['nombre']
+        correo = request.POST['correo']
+        comentario = request.POST['comentario']
+
+        pagina_actual = request.POST['pagina_actual']
+
+        comentario = Coment(
+            nombre= nombre,
+            email=correo,
+            coment=comentario,
+            article_id=article_id
+        )
+
+        comentario.save()
+
+        return redirect(pagina_actual)
