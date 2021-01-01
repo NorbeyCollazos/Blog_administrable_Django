@@ -266,15 +266,19 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="">Servicios</a>
-                            </li>
-
+                            
                             {% for page in pages  %}
                               <li class="nav-item">
                                 <a class="nav-link" href="{% url 'page' page.2 %}">{{page.1}}</a>
                             </li>
                             {% endfor %}
+
+                            {% for page_user in pages_users  %}
+                              <li class="nav-item">
+                                <a class="nav-link" href="{% url 'page' page_user.2 %}">{{page_user.1}}</a>
+                            </li>
+                            {% endfor %}
+
                         </ul>
                         <ul class="navbar-nav mr-2">
                             {% if user.email %}

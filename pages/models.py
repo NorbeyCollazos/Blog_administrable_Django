@@ -8,6 +8,7 @@ class Page(models.Model):
     slug = models.CharField(unique=True, max_length=150, verbose_name="Url amigable")
     order = models.IntegerField(default=0, verbose_name="Orden")
     visible = models.BooleanField(verbose_name="¿Visible?")
+    visible_usuarios = models.BooleanField(verbose_name="¿Visible sólo para usuarios registrados?", default=False)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Creado el")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Actualizado el")
 
