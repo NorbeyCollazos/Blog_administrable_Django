@@ -35,11 +35,13 @@ def article(request, article_id):
 
     article = Article.objects.get(id=article_id)
     comentarios = Coment.objects.filter(article=article_id)
+    total_comentarios = Coment.objects.filter(article=article_id).count()
 
     return render(request, 'articles/detail.html',{
         'article_id': article_id,
         'article': article,
-        'comentarios': comentarios
+        'comentarios': comentarios,
+        'total_comentarios': total_comentarios
     })
 
 def guardar_comentario(request, article_id):

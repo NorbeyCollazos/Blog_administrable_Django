@@ -74,7 +74,7 @@
                                 {% for article in articles %}
                                 <div class="blog-box">
                                     <div class="post-media">
-                                        <a href="tech-single.html" title="">
+                                        <a href="{% url 'article' article.id %}" title="">
                                         {% if article.image != 'null' and article.image.url|length >= 1 %}
                                               <!--<a href="#">
                                               <img style="height:220px;width:320px;" class="inspace-10 borderedbox img_desc_article" src="{{article.image.url}}" alt="">
@@ -101,11 +101,11 @@
                                         </div><!-- end post-sharing -->
                                         <h4><a href="{% url 'article' article.id %}" title="">{{article.title}}</a></h4>
                                         <div class="biography">
-                                        <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat elicerat eli nibh, maximus ac felis nec, maximus tempor odio. Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enimcerat elicerat eli nibh, maximus ac felis nec, maximus tempor odio.</p>
+                                        <p>{{article.description}}</p>
                                         </div>
                                         <!--<small><a href="tech-category.html" title="">Videos</a></small>-->
-                                        <small><a href="tech-single.html" title="">{{article.created_at}}</a></small>
-                                        <small><a href="tech-author.html" title="">Por {{article.user}}</a></small>
+                                        <small><a href="" title="">{{article.created_at}}</a></small>
+                                        <small><a href="" title="">Por {{article.user}}</a></small>
                                         <!--<small><a href="#" title=""><i class="fa fa-eye"></i> 1114</a></small>-->
                                     </div><!-- end meta -->
                                 </div><!-- end blog-box -->
