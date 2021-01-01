@@ -234,6 +234,14 @@
                         <div class="page-wrapper">
                             <div class="blog-list clearfix">
 
+                            {% if messages %}
+                              {% for message in messages %}
+                        
+                                  <span class="mensaje-exitoso">{{message}}</span>
+                              
+                              {% endfor %}
+                            {% endif %}
+                              
                             <br>
                             <div class="newsletter-widget text-center">
                                 <form class="form-inline" method="buscar">
@@ -242,6 +250,7 @@
                                 </form>
                             </div><!-- end newsletter -->
                             <br>
+                            
 
                                 {% include 'articles/article.html' %}
 

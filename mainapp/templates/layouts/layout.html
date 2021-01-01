@@ -266,6 +266,10 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Servicios</a>
+                            </li>
+
                             {% for page in pages  %}
                               <li class="nav-item">
                                 <a class="nav-link" href="{% url 'page' page.2 %}">{{page.1}}</a>
@@ -273,12 +277,23 @@
                             {% endfor %}
                         </ul>
                         <ul class="navbar-nav mr-2">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/admin/">LOGIN</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'register' %}">REGISTRO</a>
-                            </li>
+                            {% if user.email %}
+                              <li class="nav-item">
+                                <i class="fa fa-user"></i> <span> {{user}} </span>
+                              </li>
+
+                              <li class="nav-item">
+                                  <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i></a>
+                              </li>
+            
+                            {% else %}
+                              <li class="nav-item">
+                                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="{% url 'register' %}">Registro</a>
+                              </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </nav>

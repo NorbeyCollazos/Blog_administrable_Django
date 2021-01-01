@@ -1,0 +1,44 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %}{{page.title}}{% endblock  %}
+
+{% block content %}
+
+<section class="section single-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-wrapper">
+
+                <p class="btmspace-50 justified">
+                    {{register_form.errors}}
+                </p>
+
+                  <div class="custombox clearfix">
+                      <h4 class="small-title">{{title}}</h4>
+                      {% if messages %}
+                              {% for message in messages %}
+                        
+                                  <span class="mensaje-error">{{message}}</span>
+                              
+                              {% endfor %}
+                            {% endif %}
+                      <div class="row">
+                          <div class="col-lg-12">
+                              <form class="form-wrapper" method="POST">
+                              {% csrf_token %}
+                                <input type="text" name="username" class="form-control" placeholder="Ingresa el usuario">
+                                <input type="password" name="password" class="form-control" placeholder="Ingresa la contraseña">
+
+                                <button type="submit" class="btn btn-primary">Ingresar</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+
+                </div><!-- end page-wrapper -->
+            </div><!-- end col -->
+    </div><!-- end container -->
+</section>
+
+{% endblock  %}

@@ -64,6 +64,26 @@ h6:hover a {
     color: #111111 !important;
 }
 
+.mensaje-exitoso, .mensaje-error {
+
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+
+}
+
+.mensaje-exitoso{
+    color: #e1fff8;
+    background-color: #03b9a1;
+}
+
+.mensaje-error{
+    color: #fff3f1;
+    background-color: #ec2106;
+    margin-bottom: 10px;
+}
+
 h1 {
     font-size: 32px;
     line-height: 40px;
@@ -863,6 +883,7 @@ div.tab button:hover {
 .gp-button.btn-primary {
     border-color: #DA5333 !important;
     background-color: #DA5333 !important;
+    
 }
 
 .fb-button.btn-primary:focus,
@@ -884,10 +905,15 @@ div.tab button:hover {
     margin-right: 0.5rem;
 }
 
+.btn{
+    cursor: pointer !important;
+}
+
 .post-sharing .btn {
     padding: 0.3rem 1.6rem;
     border-radius: 3px;
     color: #ffffff !important;
+    
 }
 
 .post-sharing .btn:hover {
