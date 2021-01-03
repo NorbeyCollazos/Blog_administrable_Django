@@ -13,6 +13,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Categoría"
         verbose_name_plural = "Categorías"
+        ordering = ['-created_at']
     
 
     def __str__(self):
@@ -31,8 +32,9 @@ class Article(models.Model):
 
 
     class Meta:
-        verbose_name = "Artículo"
-        verbose_name_plural = "Articulos"
+        verbose_name = "Entrada"
+        verbose_name_plural = "Entradas"
+        ordering = ['-created_at']
     
 
     def __str__(self):

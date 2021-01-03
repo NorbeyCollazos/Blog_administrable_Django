@@ -9,7 +9,7 @@ def list(request):
     articles = Article.objects.all()
 
     #paginar los articulos
-    paginator = Paginator(articles, 2)
+    paginator = Paginator(articles, 3)
 
     #obtener el numero de la pagina
     page = request.GET.get('page')

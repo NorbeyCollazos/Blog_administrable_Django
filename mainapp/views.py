@@ -32,7 +32,7 @@ def index(request):
         articles = Article.objects.filter(query)
 
     #paginar los articulos
-    paginator = Paginator(articles, 2)
+    paginator = Paginator(articles, 3)
 
     #obtener el numero de la pagina
     page = request.GET.get('page')
